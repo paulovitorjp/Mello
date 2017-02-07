@@ -1,28 +1,105 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Page One</ion-title>
+    <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <h3>Próximas</h3>
-    <ion-card color="primary-bg">
+    <ion-card>
       <ion-card-header>
         Definição Recuperação Senha
+        <ion-icon color="primary" name="bookmarks" style="float:right"></ion-icon>
       </ion-card-header>
       <ion-card-content>
         Reunião para definição do método de recuperação de senha a ser usado pelo RTM Messenger.
       </ion-card-content>
+      <ion-row no-padding>
+        <ion-col>
+          <button ion-button clear small color="primary" icon-left>
+            <ion-icon name='calendar'></ion-icon>
+            13/02/2017 16:00
+          </button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button clear small color="primary" icon-left>
+            <ion-icon name='people'></ion-icon>
+            3
+          </button>
+        </ion-col>
+      </ion-row>
     </ion-card>
-    <ion-card color="secondary-bg">
+    <ion-card>
       <ion-card-header>
         Enviar Proposta
+        <ion-icon color="secondary" name="bookmark" style="float:right"></ion-icon>
       </ion-card-header>
       <ion-card-content>
         Enviar proposta de soluções para definição do processo de recuperação de senha.
       </ion-card-content>
+      <ion-row no-padding>
+        <ion-col>
+          <button ion-button clear small color="primary" icon-left>
+            <ion-icon name='calendar'></ion-icon>
+            23/02/2017 16:00
+          </button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button clear small color="primary" icon-left>
+            <ion-icon name='person'></ion-icon>
+            Paulo Vitor
+          </button>
+        </ion-col>
+      </ion-row>
     </ion-card>
+  <h3>Últimas</h3>
+  <ion-card>
+    <ion-card-header>
+      Enviar Proposta
+      <ion-icon color="secondary" name="bookmark" style="float:right"></ion-icon>
+    </ion-card-header>
+    <ion-card-content>
+      Enviar proposta de desenvolvimento do RTM Messenger.
+    </ion-card-content>
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="primary" icon-left>
+          <ion-icon name='calendar'></ion-icon>
+          12/10/2017 16:00
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="primary" icon-left>
+          <ion-icon name='person'></ion-icon>
+          Paulo Vitor
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Definição Escopo
+      <ion-icon color="primary" name="bookmarks" style="float:right"></ion-icon>
+    </ion-card-header>
+    <ion-card-content>
+      Reunião para definição do escopo do projeto RTM Messenger.
+    </ion-card-content>
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="primary" icon-left>
+          <ion-icon name='calendar'></ion-icon>
+          13/09/2016 16:00
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="primary" icon-left>
+          <ion-icon name='people'></ion-icon>
+          5
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>

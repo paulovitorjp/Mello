@@ -24,11 +24,16 @@ $font-path: "../assets/fonts";
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #0085c4,
-  secondary:  #00c67f,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+  primary:      #0085c5,
+  primary-bg:   #a0e0ff,
+  secondary:    #00c585,
+  secondary-bg: #a0ffe0,
+  warn:         #f5f53d,
+  warn-bg:      #ffffc5,
+  danger:       #f53d3d,
+  danger-bg:    #FFc5c5,
+  light:        #f4f4f4,
+  dark:         #222
 );
 
 
@@ -36,21 +41,21 @@ $colors: (
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-
+$menu-ios-background: #0085c5;
 
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
+$menu-md-background: #0085c5;
 
 
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
 
-
+$menu-wp-background: #0085c5;
 
 
 // App Theme
