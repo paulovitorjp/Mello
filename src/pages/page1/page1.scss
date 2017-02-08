@@ -1,3 +1,48 @@
 page-page1 {
+    .reuniao {
+        border-left: 4px solid map-get($colors, primary);
+    }
+    .reuniao ion-card-header {
+        color: map-get($colors, primary);
+    }
+    .reuniao button {
+        color: map-get($colors, primary);
+    }
 
+    .atividade {
+        border-left: 4px solid map-get($colors, secondary);
+    }
+    .atividade ion-card-header {
+        color: map-get($colors, secondary);
+    }
+    .atividade button {
+        color: map-get($colors, secondary);
+    }
+
+    button[ion-fab] {
+        overflow: visible;
+        position: relative;
+
+        ion-label {
+            position: absolute;
+            top: -5px;
+            right: 40px;
+            color: white;
+            line-height: 24px;
+            padding: 0 4px;
+            border-radius: 5px;
+        }
+    }
+
+    .reuniao-label-fab {
+        background-color: rgba(0,133,197,0.7);
+    }
+
+    .atividade-label-fab {
+        background-color: rgba(0,197,133,0.7);
+    }
+
+    .fab {
+        contain: layout;
+    }
 }

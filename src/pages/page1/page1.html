@@ -9,46 +9,46 @@
 
 <ion-content padding>
   <h3>Próximas</h3>
-    <ion-card>
+    <ion-card class="reuniao">
       <ion-card-header>
         Definição Recuperação Senha
-        <ion-icon color="primary" name="bookmarks" style="float:right"></ion-icon>
+        <ion-icon name="bookmarks" style="float:right"></ion-icon>
       </ion-card-header>
       <ion-card-content>
         Reunião para definição do método de recuperação de senha a ser usado pelo RTM Messenger.
       </ion-card-content>
       <ion-row no-padding>
         <ion-col>
-          <button ion-button clear small color="primary" icon-left>
+          <button ion-button clear small icon-left>
             <ion-icon name='calendar'></ion-icon>
             13/02/2017 16:00
           </button>
         </ion-col>
         <ion-col text-right>
-          <button ion-button clear small color="primary" icon-left>
+          <button ion-button clear small icon-left>
             <ion-icon name='people'></ion-icon>
             3
           </button>
         </ion-col>
       </ion-row>
     </ion-card>
-    <ion-card>
+    <ion-card class="atividade">
       <ion-card-header>
         Enviar Proposta
-        <ion-icon color="secondary" name="bookmark" style="float:right"></ion-icon>
+        <ion-icon name="bookmark" style="float:right"></ion-icon>
       </ion-card-header>
       <ion-card-content>
         Enviar proposta de soluções para definição do processo de recuperação de senha.
       </ion-card-content>
       <ion-row no-padding>
         <ion-col>
-          <button ion-button clear small color="primary" icon-left>
+          <button ion-button clear small icon-left>
             <ion-icon name='calendar'></ion-icon>
             23/02/2017 16:00
           </button>
         </ion-col>
         <ion-col text-right>
-          <button ion-button clear small color="primary" icon-left>
+          <button ion-button clear small icon-left>
             <ion-icon name='person'></ion-icon>
             Paulo Vitor
           </button>
@@ -56,50 +56,58 @@
       </ion-row>
     </ion-card>
   <h3>Últimas</h3>
-  <ion-card>
+  <ion-card class="atividade">
     <ion-card-header>
       Enviar Proposta
-      <ion-icon color="secondary" name="bookmark" style="float:right"></ion-icon>
+      <ion-icon name="bookmark" style="float:right"></ion-icon>
     </ion-card-header>
     <ion-card-content>
       Enviar proposta de desenvolvimento do RTM Messenger.
     </ion-card-content>
     <ion-row no-padding>
       <ion-col>
-        <button ion-button clear small color="primary" icon-left>
+        <button ion-button clear small icon-left>
           <ion-icon name='calendar'></ion-icon>
           12/10/2017 16:00
         </button>
       </ion-col>
       <ion-col text-right>
-        <button ion-button clear small color="primary" icon-left>
+        <button ion-button clear small icon-left>
           <ion-icon name='person'></ion-icon>
           Paulo Vitor
         </button>
       </ion-col>
     </ion-row>
   </ion-card>
-  <ion-card>
+  <ion-card class="reuniao">
     <ion-card-header>
       Definição Escopo
-      <ion-icon color="primary" name="bookmarks" style="float:right"></ion-icon>
+      <ion-icon name="bookmarks" style="float:right"></ion-icon>
     </ion-card-header>
     <ion-card-content>
       Reunião para definição do escopo do projeto RTM Messenger.
     </ion-card-content>
     <ion-row no-padding>
       <ion-col>
-        <button ion-button clear small color="primary" icon-left>
+        <button ion-button clear small icon-left>
           <ion-icon name='calendar'></ion-icon>
           13/09/2016 16:00
         </button>
       </ion-col>
       <ion-col text-right>
-        <button ion-button clear small color="primary" icon-left>
+        <button ion-button clear small icon-left>
           <ion-icon name='people'></ion-icon>
           5
         </button>
       </ion-col>
     </ion-row>
   </ion-card>
+
+  <ion-fab bottom right>
+    <button ion-fab><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab><ion-label class="atividade-label-fab">Atividade</ion-label><ion-icon name="bookmark" color="secondary"></ion-icon></button>
+      <button ion-fab><ion-label class="reuniao-label-fab">Reunião</ion-label><ion-icon name="bookmarks" color="primary"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>
