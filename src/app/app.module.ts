@@ -5,6 +5,7 @@ import { HomePage } from '../pages/home/home';
 import { SearchPage } from '../pages/search/search';
 import { MeetingPage } from '../pages/meeting/meeting';
 import { ActivityPage } from '../pages/activity/activity';
+import { MeetingService } from '../providers/meeting-service';
 
 
 @NgModule({
@@ -26,6 +27,9 @@ import { ActivityPage } from '../pages/activity/activity';
     ActivityPage,
     MeetingPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    MeetingService
+  ]
 })
 export class AppModule {}

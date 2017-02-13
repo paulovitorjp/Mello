@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { MeetingService } from '../../providers/meeting-service';
 
 /*
   Generated class for the Reuniao page.
@@ -13,8 +14,12 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class MeetingPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private mode:string;
 
+  constructor(public navCtrl: NavController, public navParams: NavParams, public meetSrvc: MeetingService) {
+    this.mode = navParams.get('mode');
   }
+
+
 
 }
