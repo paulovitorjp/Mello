@@ -14,11 +14,11 @@ export class HomePage {
 
   }
 
-  stackPage(page:any) {
+  stackPage(page:any, mode:string) {
     if(page == 'meeting')
-      this.navCtrl.push(MeetingPage);
+      this.navCtrl.push(MeetingPage, {mode: 'new'});
     else if (page == 'activity')
-      this.navCtrl.push(ActivityPage);
+      this.navCtrl.push(ActivityPage, {mode: 'new'});
   }
 
 }

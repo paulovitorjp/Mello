@@ -1,3 +1,14 @@
 page-meeting {
+  .datetime-text:empty:not(:focus):before{
+    content: "Selecione um horário e data";
+    color: lighten(color($colors, dark), 50%)
+  }
 
+  .item-md ion-icon[item-left] + .item-inner, .item-md ion-icon[item-left] + .item-input {
+    margin-left: 8px;
+  }
+
+  .add-activity {
+    color: lighten(color($colors, dark), 50%)
+  }
 }

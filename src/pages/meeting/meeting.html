@@ -13,6 +13,52 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+  <ion-list>
+    <ion-item-divider>
+      Detalhes
+    </ion-item-divider>
+    <ion-item>
+      <ion-label stacked color="primary">
+        Título
+      </ion-label>
+      <ion-input type="text" placeholder="Digite um título para a reunião"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="primary">
+        Descrição
+      </ion-label>
+      <ion-textarea placeholder="Digite uma breve descrição de até 255 caracteres para a reunião." rows="3"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="primary">
+        Data e Horário
+      </ion-label>
+      <ion-datetime displayFormat="DD/MM/YY HH:mm" placeholder="01/01/17 12:00"></ion-datetime>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item-divider>
+        Participantes
+    </ion-item-divider>
+    <div style="padding:8px">
+      <ion-chip>
+        <button ion-button color="primary">
+          <ion-icon name="add"></ion-icon>
+        </button>
+        <ion-label>Adicionar</ion-label>
+      </ion-chip>
+    </div>
+  </ion-list>
+  <ion-list>
+    <ion-item-divider>
+      Atividades
+    </ion-item-divider>
+    <button ion-item class="add-activity">
+      <ion-icon name="add" item-left color="primary"></ion-icon>
+      Adicionar
+    </button>
+  </ion-list>
 
 </ion-content>
