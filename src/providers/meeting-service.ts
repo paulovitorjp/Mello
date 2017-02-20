@@ -1,49 +1,99 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 /*
-  Generated class for the MeetingService provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
+  Relationships have been kept as Objects to easily integrate with Firebase, maintaining the relational database look and feel.
 */
 @Injectable()
 export class MeetingService {
 
-  public meetings:Array<Meeting>;
+  public _meetings:Object;
+  /**
+   * _meetings = {
+   *    'meetingKey': {Meeting Object},
+   *    ...
+   * }
+   */
 
-  constructor(public http: Http) {
-    this.meetings = [];
+  constructor() {
+    this._meetings = {};
+  }
+  
+  get meetings(): Object {
+    return this._meetings;
+  }
+
+  set meetings(value:Object) {
+    this._meetings = value;
   }
 
 }
 
 export class Meeting {
 
-  constructor(title: string, description: string, dateTime: number, participant: Contact, activities: Array<Activity>) {
-    this.title = title;
-    this.description = description;
-    this.dateTime = dateTime;
-    this.participant = participant;
-    this.activities = activities;
+  constructor(title: string, description: string, dateTime: number, participants: Object, activities: Object) {
+    this._title = title;
+    this._description = description;
+    this._dateTime = dateTime;
+    this._participants = participants;
+    this._activities = activities;
   }
 
-  public title:string;
-  public description:string;
-  public dateTime:number;
-  public participant:Contact;
-  public activities:Array<Activity>;
+  get title(): string {
+    return this._title;
+  }
+
+  set title(value: string) {
+    this._title = value;
+  }
+
+  get description(): string {
+    return this._description;
+  }
+
+  set description(value: string) {
+    this._description = value;
+  }
+
+  get dateTime(): number {
+    return this._dateTime;
+  }
+
+  set dateTime(value: number) {
+    this._dateTime = value;
+  }
+
+  get participants(): Object {
+    return this._participants;
+  }
+
+  set participants(value: Object) {
+    this._participants = value;
+  }
+
+  get activities(): Object {
+    return this._activities;
+  }
+
+  set activities(value: Object) {
+    this._activities = value;
+  }
+
+  public _title:string;
+  public _description:string;
+  public _dateTime:number;
+  public _participants:Object;
+  public _activities:Object;
 
 }
 
 export class Contact {
 
-  constructor(name: string, email: string, phone: string, company: Company, notes: string) {
+  constructor(name: string, email: string, phone: string, companies: Object, notes: string) {
     this._name = name;
     this._email = email;
     this._phone = phone;
-    this._company = company;
+    this._companies = companies;
     this._notes = notes;
   }
 
@@ -71,12 +121,12 @@ export class Contact {
     this._phone = value;
   }
 
-  get company(): Company {
-    return this._company;
+  get companies(): Object {
+    return this._companies;
   }
 
-  set company(value: Company) {
-    this._company = value;
+  set companies(value: Object) {
+    this._companies = value;
   }
 
   get notes(): string {
@@ -90,7 +140,7 @@ export class Contact {
   private _name:string;
   private _email:string;
   private _phone:string;
-  private _company:Company;
+  private _companies:Object;
   private _notes:string;
 
 }
@@ -135,10 +185,10 @@ export class Company {
 
 export class Activity {
 
-  constructor(title: string, description: string, owner: Contact, dueDate: number) {
+  constructor(title: string, description: string, owners: Object, dueDate: number) {
     this._title = title;
     this._description = description;
-    this._owner = owner;
+    this._owners = owners;
     this._dueDate = dueDate;
     this._status = 'incomplete';
   }
@@ -159,12 +209,12 @@ export class Activity {
     this._description = value;
   }
 
-  get owner(): Contact {
-    return this._owner;
+  get owners(): Object {
+    return this._owners;
   }
 
-  set owner(value: Contact) {
-    this._owner = value;
+  set owners(value: Object) {
+    this._owners = value;
   }
 
   get dueDate(): number {
@@ -185,7 +235,7 @@ export class Activity {
 
   private _title:string;
   private _description:string;
-  private _owner:Contact;
+  private _owners:Object;
   private _dueDate:number;
   private _status:string;
 
