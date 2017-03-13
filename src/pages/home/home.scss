@@ -1,21 +1,21 @@
 page-home {
-    .reuniao {
+    .meeting {
         border-left: 4px solid map-get($colors, primary);
     }
-    .reuniao ion-card-header {
+    .meeting ion-card-header {
         color: map-get($colors, primary);
     }
-    .reuniao button {
+    .meeting button {
         color: map-get($colors, primary);
     }
 
-    .atividade {
+    .activity {
         border-left: 4px solid map-get($colors, secondary);
     }
-    .atividade ion-card-header {
+    .activity ion-card-header {
         color: map-get($colors, secondary);
     }
-    .atividade button {
+    .activity button {
         color: map-get($colors, secondary);
     }
 

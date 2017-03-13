@@ -3,6 +3,7 @@ import 'rxjs/add/operator/map';
 
 /*
   Relationships have been kept as Objects to easily integrate with Firebase, maintaining the relational database look and feel.
+  {'key1':true,'key2':true}
 */
 @Injectable()
 export class MeetingService {
@@ -16,7 +17,13 @@ export class MeetingService {
    */
 
   constructor() {
-    this._meetings = {};
+    let meet1 = new Meeting(
+      'Definição Recuperação Senha',
+      'Reunião para definição do método de recuperação de senha a ser usado pelo RTM Messenger.',
+      1487008800000, {}, {});//TODO
+    this._meetings = {
+
+    };
   }
   
   get meetings(): Object {
@@ -30,6 +37,8 @@ export class MeetingService {
 }
 
 export class Meeting {
+
+  static class:string = "meeting";
 
   constructor(title: string, description: string, dateTime: number, participants: Object, activities: Object) {
     this._title = title;
@@ -89,6 +98,8 @@ export class Meeting {
 
 export class Contact {
 
+  static class:string = "contact";
+
   constructor(name: string, email: string, phone: string, companies: Object, notes: string) {
     this._name = name;
     this._email = email;
@@ -147,6 +158,8 @@ export class Contact {
 
 export class Company {
 
+  static class:string = "company";
+
   constructor(name: string, address: string, notes: string) {
     this._name = name;
     this._address = address;
@@ -184,6 +197,8 @@ export class Company {
 }
 
 export class Activity {
+
+  static class:string = "activity";
 
   constructor(title: string, description: string, owners: Object, dueDate: number) {
     this._title = title;

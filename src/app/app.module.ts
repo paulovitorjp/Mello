@@ -6,7 +6,16 @@ import { SearchPage } from '../pages/search/search';
 import { MeetingPage } from '../pages/meeting/meeting';
 import { ActivityPage } from '../pages/activity/activity';
 import { MeetingService } from '../providers/meeting-service';
+import { AngularFireModule } from 'angularfire2';
 
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyCWtM4At5PUa70K2ms-XfDqPg3dQOeI62g",
+  authDomain: "mello-41031.firebaseapp.com",
+  databaseURL: "https://mello-41031.firebaseio.com",
+  storageBucket: "mello-41031.appspot.com",
+  messagingSenderId: "345347713220"
+};
 
 @NgModule({
   declarations: [
@@ -17,7 +26,8 @@ import { MeetingService } from '../providers/meeting-service';
     MeetingPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
