@@ -9,86 +9,37 @@
 
 <ion-content padding>
   <h3>Próximas</h3>
-    <ion-card *ngFor='let event of next' class="{{event.class}}">
+  <div *ngFor="let event of next">
+    <!--If meeting-->
+    <ion-card class="meeting" *ngIf="event.constructor.name == 'Meeting'">
       <ion-card-header>
         {{event.title}}
-        <ion-icon name="bookmarks" style="float:right" *ngIf="event.class == 'meeting'"></ion-icon>
-        <ion-icon name="bookmark" style="float:right" *ngIf="event.class == 'activity'"></ion-icon>
-      </ion-card-header>
-      <ion-card-content>
-        {{event.description}}
-      </ion-card-content>
-      <ion-row no-padding>
-        <ion-col>
-          <button ion-button clear small icon-left>
-            <ion-icon name='calendar'></ion-icon>
-            {{new Date(event.dateTime)}}
-          </button>
-        </ion-col>
-        <ion-col text-right>
-          <button ion-button clear small icon-left *ngIf="event.class == 'meeting'">
-            <ion-icon name='people'></ion-icon>
-            {{Object.getOwnPropertyNames(event.participants).length}}
-          </button>
-          <button ion-button clear small icon-left *ngIf="event.class == 'activity'">
-            <ion-icon name='person'></ion-icon>
-            {{event.owner}}
-          </button>
-        </ion-col>
-      </ion-row>
-    </ion-card>
-    <!--<ion-card class="meeting">
-      <ion-card-header>
-        Definição Recuperação Senha
         <ion-icon name="bookmarks" style="float:right"></ion-icon>
       </ion-card-header>
       <ion-card-content>
-        Reunião para definição do método de recuperação de senha a ser usado pelo RTM Messenger.
+        {{event.description}}
       </ion-card-content>
       <ion-row no-padding>
         <ion-col>
           <button ion-button clear small icon-left>
             <ion-icon name='calendar'></ion-icon>
-            13/02/2017 16:00
+            {{event.dateTime}}
           </button>
         </ion-col>
         <ion-col text-right>
           <button ion-button clear small icon-left>
             <ion-icon name='people'></ion-icon>
-            3
+            {{event.participants}}
           </button>
         </ion-col>
       </ion-row>
     </ion-card>
-    <ion-card class="activity">
-      <ion-card-header>
-        Enviar Proposta
-        <ion-icon name="bookmark" style="float:right"></ion-icon>
-      </ion-card-header>
-      <ion-card-content>
-        Enviar proposta de soluções para definição do processo de recuperação de senha.
-      </ion-card-content>
-      <ion-row no-padding>
-        <ion-col>
-          <button ion-button clear small icon-left>
-            <ion-icon name='calendar'></ion-icon>
-            23/02/2017 16:00
-          </button>
-        </ion-col>
-        <ion-col text-right>
-          <button ion-button clear small icon-left>
-            <ion-icon name='person'></ion-icon>
-            Paulo Vitor
-          </button>
-        </ion-col>
-      </ion-row>
-    </ion-card>-->
-  <h3>Últimas</h3>
-  <ion-card *ngFor='let event of next' class="{{event.class}}">
+    <!--End If meeting-->
+    <!--If activity-->
+    <ion-card class="activity" *ngIf="event.constructor.name == 'Activity'">
       <ion-card-header>
         {{event.title}}
-        <ion-icon name="bookmarks" style="float:right" *ngIf="event.class == 'meeting'"></ion-icon>
-        <ion-icon name="bookmark" style="float:right" *ngIf="event.class == 'activity'"></ion-icon>
+        <ion-icon name="bookmark" style="float:right"></ion-icon>
       </ion-card-header>
       <ion-card-content>
         {{event.description}}
@@ -97,67 +48,72 @@
         <ion-col>
           <button ion-button clear small icon-left>
             <ion-icon name='calendar'></ion-icon>
-            {{new Date(event.dateTime)}}
+            {{event.dateTime}}
           </button>
         </ion-col>
         <ion-col text-right>
-          <button ion-button clear small icon-left *ngIf="event.class == 'meeting'">
-            <ion-icon name='people'></ion-icon>
-            {{Object.getOwnPropertyNames(event.participants).length}}
-          </button>
-          <button ion-button clear small icon-left *ngIf="event.class == 'activity'">
+          <button ion-button clear small icon-left>
             <ion-icon name='person'></ion-icon>
-            {{event.owner}}
+            {{event.owners}}
           </button>
         </ion-col>
       </ion-row>
     </ion-card>
-  <!--<ion-card class="activity">
-    <ion-card-header>
-      Enviar Proposta
-      <ion-icon name="bookmark" style="float:right"></ion-icon>
-    </ion-card-header>
-    <ion-card-content>
-      Enviar proposta de desenvolvimento do RTM Messenger.
-    </ion-card-content>
-    <ion-row no-padding>
-      <ion-col>
-        <button ion-button clear small icon-left>
-          <ion-icon name='calendar'></ion-icon>
-          12/10/2017 16:00
-        </button>
-      </ion-col>
-      <ion-col text-right>
-        <button ion-button clear small icon-left>
-          <ion-icon name='person'></ion-icon>
-          Paulo Vitor
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-  <ion-card class="meeting">
-    <ion-card-header>
-      Definição Escopo
-      <ion-icon name="bookmarks" style="float:right"></ion-icon>
-    </ion-card-header>
-    <ion-card-content>
-      Reunião para definição do escopo do projeto RTM Messenger.
-    </ion-card-content>
-    <ion-row no-padding>
-      <ion-col>
-        <button ion-button clear small icon-left>
-          <ion-icon name='calendar'></ion-icon>
-          13/09/2016 16:00
-        </button>
-      </ion-col>
-      <ion-col text-right>
-        <button ion-button clear small icon-left>
-          <ion-icon name='people'></ion-icon>
-          5
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-card>-->
+    <!--End If activity-->
+  </div>
+  <h3>Últimas</h3>
+  <div *ngFor="let event of previous">
+    <!--If meeting-->
+    <ion-card class="meeting" *ngIf="event.constructor.name == 'Meeting'">
+      <ion-card-header>
+        {{event.title}}
+        <ion-icon name="bookmarks" style="float:right"></ion-icon>
+      </ion-card-header>
+      <ion-card-content>
+        {{event.description}}
+      </ion-card-content>
+      <ion-row no-padding>
+        <ion-col>
+          <button ion-button clear small icon-left>
+            <ion-icon name='calendar'></ion-icon>
+            {{event.dateTime}}
+          </button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button clear small icon-left>
+            <ion-icon name='people'></ion-icon>
+            {{event.participants}}
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <!--End If meeting-->
+    <!--If activity-->
+    <ion-card class="activity" *ngIf="event.constructor.name == 'Activity'">
+      <ion-card-header>
+        {{event.title}}
+        <ion-icon name="bookmark" style="float:right"></ion-icon>
+      </ion-card-header>
+      <ion-card-content>
+        {{event.description}}
+      </ion-card-content>
+      <ion-row no-padding>
+        <ion-col>
+          <button ion-button clear small icon-left>
+            <ion-icon name='calendar'></ion-icon>
+            {{event.dateTime}}
+          </button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button clear small icon-left>
+            <ion-icon name='person'></ion-icon>
+            {{event.owners}}
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <!--End If activity-->
+  </div>
 
   <ion-fab bottom right>
     <button ion-fab><ion-icon name="add"></ion-icon></button>

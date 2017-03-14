@@ -54,7 +54,7 @@ export class MeetingService {
 
 export class Meeting {
 
-  static class: string = "meeting";
+  public static class: string = "meeting";
 
   constructor(title: string, description: string, dateTime: number, participants: Object, activities: Object) {
     this._title = title;
@@ -114,7 +114,7 @@ export class Meeting {
 
 export class Contact {
 
-  static class: string = "contact";
+  public static class: string = "contact";
 
   constructor(name: string, email: string, phone: string, companies: Object, notes: string) {
     this._name = name;
@@ -174,7 +174,7 @@ export class Contact {
 
 export class Company {
 
-  static class: string = "company";
+  public static class: string = "company";
 
   constructor(name: string, address: string, notes: string) {
     this._name = name;
@@ -214,7 +214,7 @@ export class Company {
 
 export class Activity {
 
-  static class: string = "activity";
+  public static class: string = "activity";
 
   constructor(title: string, description: string, owners: Object, dateTime: number) {
     this._title = title;
