@@ -9,7 +9,35 @@
 
 <ion-content padding>
   <h3>Próximas</h3>
-    <ion-card class="reuniao">
+    <ion-card *ngFor='let event of next' class="{{event.class}}">
+      <ion-card-header>
+        {{event.title}}
+        <ion-icon name="bookmarks" style="float:right" *ngIf="event.class == 'meeting'"></ion-icon>
+        <ion-icon name="bookmark" style="float:right" *ngIf="event.class == 'activity'"></ion-icon>
+      </ion-card-header>
+      <ion-card-content>
+        {{event.description}}
+      </ion-card-content>
+      <ion-row no-padding>
+        <ion-col>
+          <button ion-button clear small icon-left>
+            <ion-icon name='calendar'></ion-icon>
+            {{new Date(event.dateTime)}}
+          </button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button clear small icon-left *ngIf="event.class == 'meeting'">
+            <ion-icon name='people'></ion-icon>
+            {{Object.getOwnPropertyNames(event.participants).length}}
+          </button>
+          <button ion-button clear small icon-left *ngIf="event.class == 'activity'">
+            <ion-icon name='person'></ion-icon>
+            {{event.owner}}
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <!--<ion-card class="meeting">
       <ion-card-header>
         Definição Recuperação Senha
         <ion-icon name="bookmarks" style="float:right"></ion-icon>
@@ -32,7 +60,7 @@
         </ion-col>
       </ion-row>
     </ion-card>
-    <ion-card class="atividade">
+    <ion-card class="activity">
       <ion-card-header>
         Enviar Proposta
         <ion-icon name="bookmark" style="float:right"></ion-icon>
@@ -54,9 +82,37 @@
           </button>
         </ion-col>
       </ion-row>
-    </ion-card>
+    </ion-card>-->
   <h3>Últimas</h3>
-  <ion-card class="atividade">
+  <ion-card *ngFor='let event of next' class="{{event.class}}">
+      <ion-card-header>
+        {{event.title}}
+        <ion-icon name="bookmarks" style="float:right" *ngIf="event.class == 'meeting'"></ion-icon>
+        <ion-icon name="bookmark" style="float:right" *ngIf="event.class == 'activity'"></ion-icon>
+      </ion-card-header>
+      <ion-card-content>
+        {{event.description}}
+      </ion-card-content>
+      <ion-row no-padding>
+        <ion-col>
+          <button ion-button clear small icon-left>
+            <ion-icon name='calendar'></ion-icon>
+            {{new Date(event.dateTime)}}
+          </button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button clear small icon-left *ngIf="event.class == 'meeting'">
+            <ion-icon name='people'></ion-icon>
+            {{Object.getOwnPropertyNames(event.participants).length}}
+          </button>
+          <button ion-button clear small icon-left *ngIf="event.class == 'activity'">
+            <ion-icon name='person'></ion-icon>
+            {{event.owner}}
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  <!--<ion-card class="activity">
     <ion-card-header>
       Enviar Proposta
       <ion-icon name="bookmark" style="float:right"></ion-icon>
@@ -79,7 +135,7 @@
       </ion-col>
     </ion-row>
   </ion-card>
-  <ion-card class="reuniao">
+  <ion-card class="meeting">
     <ion-card-header>
       Definição Escopo
       <ion-icon name="bookmarks" style="float:right"></ion-icon>
@@ -101,7 +157,7 @@
         </button>
       </ion-col>
     </ion-row>
-  </ion-card>
+  </ion-card>-->
 
   <ion-fab bottom right>
     <button ion-fab><ion-icon name="add"></ion-icon></button>

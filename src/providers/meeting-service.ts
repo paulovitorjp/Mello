@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class MeetingService {
 
-  public _meetings:Object;
+  public _meetings: Object;
   /**
    * _meetings = {
    *    'meetingKey': {Meeting Object},
@@ -16,29 +16,45 @@ export class MeetingService {
    * }
    */
 
+  public _activities: Object;
+  public _contacts: Object;
+  public _companies: Object;
+
   constructor() {
+    let comp1 = new Company('PVJP Tecnologia', 'Av. Lino de Almeida Pires, 333', 'Desenvolvedora do Conectrade');
+    let comp2 = new Company('RTM', 'R. Libero Badaró, 111', '');
+    let cont1 = new Contact('Paulo Vitor', 'paulo@telep.com.br', '+5511977782110', { 'comp1': true }, 'Desenvolvedor RTM Messenger');
+    let cont2 = new Contact('André Mello', 'andre.mello@rtm.net.br', '+5511988887777', { 'comp2': true }, 'Diretor Geral');
+    let acti1 = new Activity('Enviar Proposta', 'Enviar proposta de redefinição de senha de usuário final.', { 'cont1': true }, 1489604400000);
     let meet1 = new Meeting(
       'Definição Recuperação Senha',
       'Reunião para definição do método de recuperação de senha a ser usado pelo RTM Messenger.',
-      1487008800000, {}, {});//TODO
-    this._meetings = {
-
-    };
+      1487008800000, { 'cont1': true, 'cont2': true }, { 'acti1': true });
+    this._activities = { 'acti1': acti1 };
+    this._meetings = { 'meet1': meet1 };
   }
-  
+
   get meetings(): Object {
     return this._meetings;
   }
 
-  set meetings(value:Object) {
+  set meetings(value: Object) {
     this._meetings = value;
+  }
+
+  get activities(): Object {
+    return this._activities;
+  }
+
+  set activities(value: Object) {
+    this._activities = value;
   }
 
 }
 
 export class Meeting {
 
-  static class:string = "meeting";
+  static class: string = "meeting";
 
   constructor(title: string, description: string, dateTime: number, participants: Object, activities: Object) {
     this._title = title;
@@ -88,17 +104,17 @@ export class Meeting {
     this._activities = value;
   }
 
-  public _title:string;
-  public _description:string;
-  public _dateTime:number;
-  public _participants:Object;
-  public _activities:Object;
+  public _title: string;
+  public _description: string;
+  public _dateTime: number;
+  public _participants: Object;
+  public _activities: Object;
 
 }
 
 export class Contact {
 
-  static class:string = "contact";
+  static class: string = "contact";
 
   constructor(name: string, email: string, phone: string, companies: Object, notes: string) {
     this._name = name;
@@ -148,17 +164,17 @@ export class Contact {
     this._notes = value;
   }
 
-  private _name:string;
-  private _email:string;
-  private _phone:string;
-  private _companies:Object;
-  private _notes:string;
+  private _name: string;
+  private _email: string;
+  private _phone: string;
+  private _companies: Object;
+  private _notes: string;
 
 }
 
 export class Company {
 
-  static class:string = "company";
+  static class: string = "company";
 
   constructor(name: string, address: string, notes: string) {
     this._name = name;
@@ -190,21 +206,21 @@ export class Company {
     this._notes = value;
   }
 
-  private _name:string;
-  private _address:string;
-  private _notes:string;
+  private _name: string;
+  private _address: string;
+  private _notes: string;
 
 }
 
 export class Activity {
 
-  static class:string = "activity";
+  static class: string = "activity";
 
-  constructor(title: string, description: string, owners: Object, dueDate: number) {
+  constructor(title: string, description: string, owners: Object, dateTime: number) {
     this._title = title;
     this._description = description;
     this._owners = owners;
-    this._dueDate = dueDate;
+    this._dateTime = dateTime;
     this._status = 'incomplete';
   }
 
@@ -232,12 +248,12 @@ export class Activity {
     this._owners = value;
   }
 
-  get dueDate(): number {
-    return this._dueDate;
+  get dateTime(): number {
+    return this._dateTime;
   }
 
-  set dueDate(value: number) {
-    this._dueDate = value;
+  set dateTime(value: number) {
+    this._dateTime = value;
   }
 
   get status(): string {
@@ -248,10 +264,10 @@ export class Activity {
     this._status = value;
   }
 
-  private _title:string;
-  private _description:string;
-  private _owners:Object;
-  private _dueDate:number;
-  private _status:string;
+  private _title: string;
+  private _description: string;
+  private _owners: Object;
+  private _dateTime: number;
+  private _status: string;
 
 }
