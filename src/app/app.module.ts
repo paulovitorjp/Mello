@@ -7,6 +7,8 @@ import { MeetingPage } from '../pages/meeting/meeting';
 import { ActivityPage } from '../pages/activity/activity';
 import { MeetingService } from '../providers/meeting-service';
 import { AngularFireModule } from 'angularfire2';
+import { ActivityCardComponent } from '../components/activity-card/activity-card';
+import { MeetingCardComponent } from '../components/meeting-card/meeting-card';
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -23,7 +25,9 @@ const firebaseConfig = {
     HomePage,
     SearchPage,
     ActivityPage,
-    MeetingPage
+    MeetingPage,
+    ActivityCardComponent,
+    MeetingCardComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -35,7 +39,9 @@ const firebaseConfig = {
     HomePage,
     SearchPage,
     ActivityPage,
-    MeetingPage
+    MeetingPage,
+    ActivityCardComponent,
+    MeetingCardComponent
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

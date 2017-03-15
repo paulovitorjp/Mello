@@ -1,0 +1,13 @@
+activity-card {
+
+    .activity {
+        border-left: 4px solid map-get($colors, secondary);
+    }
+    .activity ion-card-header {
+        color: map-get($colors, secondary);
+    }
+    .activity button {
+        color: map-get($colors, secondary);
+    }
+    
+}

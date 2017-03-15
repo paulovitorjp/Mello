@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ActivityPage } from '../activity/activity';
 import { MeetingPage } from '../meeting/meeting';
-import { MeetingService, Meeting, Activity } from '../../providers/meeting-service';
+import { MeetingService} from '../../providers/meeting-service';
 
 /**
  * Interface for ordering by dateTime
@@ -27,10 +27,10 @@ export class HomePage {
         this.meetSrvc.activities]
       )
     );
-    console.log('next');
-    console.log(this.next);
-    console.log('previous');
-    console.log(this.previous);
+    // console.log('next');
+    // console.log(this.next);
+    // console.log('previous');
+    // console.log(this.previous);
   }
 
   /**
@@ -38,8 +38,8 @@ export class HomePage {
    * @param values The array of Objects to be reduced.
    */
   reduceObjectsIntoArray(values: Array<Object>): Array<Orderable> {
-    console.log('before reduce');
-    console.log(values);
+    // console.log('before reduce');
+    // console.log(values);
     let temp: Array<Orderable> = new Array<Orderable>();
     values.reduce((prev, cur) => {
       let keys = Object.getOwnPropertyNames(cur);
@@ -48,8 +48,8 @@ export class HomePage {
       }
       return temp;
     }, temp);
-    console.log('after reduce');
-    console.log(temp);
+    // console.log('after reduce');
+    // console.log(temp);
     return temp;
   }
 
@@ -60,13 +60,13 @@ export class HomePage {
   splitByDate(values: Array<Orderable>): Array<Array<Orderable>> {
     values = this.sortByDate(values, 'd');
     let now = new Date().getTime();
-    console.log('NOW');
-    console.log(now);
+    // console.log('NOW');
+    // console.log(now);
     let i;
     for (i=0; i < values.length; i++) {
       if(values[i].dateTime < now) {
-        console.log('iteration:'+i);
-        console.log('found split point');
+        // console.log('iteration:'+i);
+        // console.log('found split point');
         break;
       }
     }
@@ -79,10 +79,10 @@ export class HomePage {
    * @param order Indicates whether it should order ascending, 'a', or descending, 'd'.
    */
   sortByDate(values: Array<Orderable>, order:string): Array<Orderable> {
-    console.log('before sort');
-    for(let item of values) {
-      console.log(item.dateTime);
-    }
+    // console.log('before sort');
+    // for(let item of values) {
+    //   console.log(item.dateTime);
+    // }
     switch(order) {
       case 'a': //ascending
         values.sort((a, b)=>{
@@ -97,10 +97,10 @@ export class HomePage {
       default:
         console.error('[home.ts -> sortByDate] Invalid order specified.');
     }
-    console.log('after');
-    for(let item of values) {
-      console.log(item.dateTime);
-    }
+    // console.log('after');
+    // for(let item of values) {
+    //   console.log(item.dateTime);
+    // }
     return values;
   }
 

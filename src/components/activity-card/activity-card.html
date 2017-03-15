@@ -1,0 +1,23 @@
+<ion-card class="activity">
+  <ion-card-header>
+    {{activity.title}}
+    <ion-icon name="bookmark" style="float:right"></ion-icon>
+  </ion-card-header>
+  <ion-card-content>
+    {{activity.description}}
+  </ion-card-content>
+  <ion-row no-padding>
+    <ion-col>
+      <button ion-button clear small icon-left>
+            <ion-icon name='calendar'></ion-icon>
+            {{humanDate}}
+          </button>
+    </ion-col>
+    <ion-col text-right>
+      <button ion-button clear small icon-left>
+            <ion-icon name='person'></ion-icon>
+            {{owners}}
+          </button>
+    </ion-col>
+  </ion-row>
+</ion-card>

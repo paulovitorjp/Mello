@@ -11,107 +11,19 @@
   <h3>Próximas</h3>
   <div *ngFor="let event of next">
     <!--If meeting-->
-    <ion-card class="meeting" *ngIf="event.constructor.name == 'Meeting'">
-      <ion-card-header>
-        {{event.title}}
-        <ion-icon name="bookmarks" style="float:right"></ion-icon>
-      </ion-card-header>
-      <ion-card-content>
-        {{event.description}}
-      </ion-card-content>
-      <ion-row no-padding>
-        <ion-col>
-          <button ion-button clear small icon-left>
-            <ion-icon name='calendar'></ion-icon>
-            {{event.dateTime}}
-          </button>
-        </ion-col>
-        <ion-col text-right>
-          <button ion-button clear small icon-left>
-            <ion-icon name='people'></ion-icon>
-            {{event.participants}}
-          </button>
-        </ion-col>
-      </ion-row>
-    </ion-card>
+    <meeting-card [meeting]="event" *ngIf="event.constructor.name == 'Meeting'"></meeting-card>
     <!--End If meeting-->
     <!--If activity-->
-    <ion-card class="activity" *ngIf="event.constructor.name == 'Activity'">
-      <ion-card-header>
-        {{event.title}}
-        <ion-icon name="bookmark" style="float:right"></ion-icon>
-      </ion-card-header>
-      <ion-card-content>
-        {{event.description}}
-      </ion-card-content>
-      <ion-row no-padding>
-        <ion-col>
-          <button ion-button clear small icon-left>
-            <ion-icon name='calendar'></ion-icon>
-            {{event.dateTime}}
-          </button>
-        </ion-col>
-        <ion-col text-right>
-          <button ion-button clear small icon-left>
-            <ion-icon name='person'></ion-icon>
-            {{event.owners}}
-          </button>
-        </ion-col>
-      </ion-row>
-    </ion-card>
+    <activity-card [activity]="event" *ngIf="event.constructor.name == 'Activity'"></activity-card>
     <!--End If activity-->
   </div>
   <h3>Últimas</h3>
   <div *ngFor="let event of previous">
-    <!--If meeting-->
-    <ion-card class="meeting" *ngIf="event.constructor.name == 'Meeting'">
-      <ion-card-header>
-        {{event.title}}
-        <ion-icon name="bookmarks" style="float:right"></ion-icon>
-      </ion-card-header>
-      <ion-card-content>
-        {{event.description}}
-      </ion-card-content>
-      <ion-row no-padding>
-        <ion-col>
-          <button ion-button clear small icon-left>
-            <ion-icon name='calendar'></ion-icon>
-            {{event.dateTime}}
-          </button>
-        </ion-col>
-        <ion-col text-right>
-          <button ion-button clear small icon-left>
-            <ion-icon name='people'></ion-icon>
-            {{event.participants}}
-          </button>
-        </ion-col>
-      </ion-row>
-    </ion-card>
+    <!--If meeting--> 
+    <meeting-card [meeting]="event" *ngIf="event.constructor.name == 'Meeting'"></meeting-card>
     <!--End If meeting-->
     <!--If activity-->
-    <ion-card class="activity" *ngIf="event.constructor.name == 'Activity'">
-      <ion-card-header>
-        {{event.title}}
-        <ion-icon name="bookmark" style="float:right"></ion-icon>
-      </ion-card-header>
-      <ion-card-content>
-        {{event.description}}
-      </ion-card-content>
-      <ion-row no-padding>
-        <ion-col>
-          <button ion-button clear small icon-left>
-            <ion-icon name='calendar'></ion-icon>
-            {{event.dateTime}}
-          </button>
-        </ion-col>
-        <ion-col text-right>
-          <button ion-button clear small icon-left>
-            <ion-icon name='person'></ion-icon>
-            {{event.owners}}
-          </button>
-        </ion-col>
-      </ion-row>
-    </ion-card>
+    <activity-card [activity]="event" *ngIf="event.constructor.name == 'Activity'"></activity-card>
     <!--End If activity-->
   </div>
 

@@ -32,6 +32,8 @@ export class MeetingService {
       1487008800000, { 'cont1': true, 'cont2': true }, { 'acti1': true });
     this._activities = { 'acti1': acti1 };
     this._meetings = { 'meet1': meet1 };
+    this._contacts = { 'cont1': cont1, 'cont2': cont2};
+    this._companies = {'comp1': comp1, 'comp2': comp2};
   }
 
   get meetings(): Object {
@@ -48,6 +50,14 @@ export class MeetingService {
 
   set activities(value: Object) {
     this._activities = value;
+  }
+
+  get contacts(): Object {
+    return this._contacts;
+  }
+
+  set contacts(value: Object) {
+    this._contacts = value;
   }
 
 }

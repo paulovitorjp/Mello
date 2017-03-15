@@ -9,16 +9,6 @@ page-home {
         color: map-get($colors, primary);
     }
 
-    .activity {
-        border-left: 4px solid map-get($colors, secondary);
-    }
-    .activity ion-card-header {
-        color: map-get($colors, secondary);
-    }
-    .activity button {
-        color: map-get($colors, secondary);
-    }
-
     button[ion-fab] {
         overflow: visible;
         position: relative;
