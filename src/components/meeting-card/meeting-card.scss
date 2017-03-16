@@ -1,3 +1,11 @@
 meeting-card {
-
+    .meeting {
+        border-left: 4px solid map-get($colors, primary);
+    }
+    .meeting ion-card-header {
+        color: map-get($colors, primary);
+    }
+    .meeting button {
+        color: map-get($colors, primary);
+    }
 }

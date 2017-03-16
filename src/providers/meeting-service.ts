@@ -29,7 +29,7 @@ export class MeetingService {
     let meet1 = new Meeting(
       'Definição Recuperação Senha',
       'Reunião para definição do método de recuperação de senha a ser usado pelo RTM Messenger.',
-      1487008800000, { 'cont1': true, 'cont2': true }, { 'acti1': true });
+      1487008800000, { 'cont1': true, 'cont2': true }, { 'acti1': true }, 'Negócio');
     this._activities = { 'acti1': acti1 };
     this._meetings = { 'meet1': meet1 };
     this._contacts = { 'cont1': cont1, 'cont2': cont2};
@@ -66,12 +66,13 @@ export class Meeting {
 
   public static class: string = "meeting";
 
-  constructor(title: string, description: string, dateTime: number, participants: Object, activities: Object) {
+  constructor(title: string, description: string = '', dateTime: number = Date.now(), participants: Object = {}, activities: Object = {}, type:string = '') {
     this._title = title;
     this._description = description;
     this._dateTime = dateTime;
     this._participants = participants;
     this._activities = activities;
+    this._type = type;
   }
 
   get title(): string {
@@ -114,11 +115,20 @@ export class Meeting {
     this._activities = value;
   }
 
+  get type(): string {
+    return this._type;
+  }
+
+  set type(value: string) {
+    this._type = value;
+  }
+
   public _title: string;
   public _description: string;
   public _dateTime: number;
   public _participants: Object;
   public _activities: Object;
+  public _type: string;
 
 }
 
@@ -174,11 +184,20 @@ export class Contact {
     this._notes = value;
   }
 
+  get role(): string {
+    return this._role;
+  }
+
+  set role(value: string) {
+    this._role = value;
+  }
+
   private _name: string;
   private _email: string;
   private _phone: string;
   private _companies: Object;
   private _notes: string;
+  private _role: string;
 
 }
 
