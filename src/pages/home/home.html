@@ -9,6 +9,9 @@
 
 <ion-content padding>
   <h3>Próximas</h3>
+  <ion-card *ngIf="next.length == 0" class="void">
+    <ion-card-content>Não existem próximas reuniões ou atividades</ion-card-content>
+  </ion-card>
   <div *ngFor="let event of next">
     <!--If meeting-->
     <meeting-card [meeting]="event" *ngIf="event.constructor.name == 'Meeting'"></meeting-card>
@@ -18,6 +21,9 @@
     <!--End If activity-->
   </div>
   <h3>Últimas</h3>
+    <ion-card *ngIf="previous.length == 0" class="void">
+    <ion-content>Não existem reuniões ou atividades passadas</ion-content>
+  </ion-card>
   <div *ngFor="let event of previous">
     <!--If meeting--> 
     <meeting-card [meeting]="event" *ngIf="event.constructor.name == 'Meeting'"></meeting-card>

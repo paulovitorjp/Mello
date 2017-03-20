@@ -17,6 +17,7 @@ export class MeetingCardComponent {
   _meeting: Meeting;
   humanDate: string;
   participants: number;
+  activities: number;
 
   constructor() {
   
@@ -33,8 +34,10 @@ export class MeetingCardComponent {
     this.humanDate = tempDate.toLocaleString();
     this.humanDate = this.humanDate.substr(0,this.humanDate.length-3);
     //converts owners keys to name strings
-    let keys = Object.getOwnPropertyNames(this.meeting.participants);
-    this.participants = keys.length;
+    let keysP = Object.getOwnPropertyNames(this.meeting.participants);
+    this.participants = keysP.length;
+    let keysA = Object.getOwnPropertyNames(this.meeting.activities);
+    this.activities = keysA.length;
   }
 
 }

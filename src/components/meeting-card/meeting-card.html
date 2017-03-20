@@ -7,13 +7,19 @@
     {{meeting.description}}
   </ion-card-content>
   <ion-row no-padding>
-    <ion-col>
+    <ion-col no-padding>
       <button ion-button clear small icon-left>
             <ion-icon name='calendar'></ion-icon>
             {{humanDate}}
       </button> 
     </ion-col>
-    <ion-col text-right>
+    <ion-col text-center no-padding class="activity">
+      <button ion-button clear small icon-left>
+            <ion-icon name='bookmark'></ion-icon>
+            {{activities}}
+      </button>
+    </ion-col>
+    <ion-col text-right no-padding>
       <button ion-button clear small icon-left>
             <ion-icon name='people'></ion-icon>
             {{participants}}

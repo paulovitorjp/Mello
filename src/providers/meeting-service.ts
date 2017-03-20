@@ -1,34 +1,34 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
-/*
-  Relationships have been kept as Objects to easily integrate with Firebase, maintaining the relational database look and feel.
-  {'key1':true,'key2':true}
-*/
+/**
+ * Relationships have been kept as Objects to easily integrate with Firebase, maintaining the relational database look and feel.
+ * {'key1':true,'key2':true}
+ */
 @Injectable()
 export class MeetingService {
 
-  public _meetings: Object;
   /**
    * _meetings = {
    *    'meetingKey': {Meeting Object},
    *    ...
    * }
    */
-
+  public _meetings: Object;
   public _activities: Object;
   public _contacts: Object;
   public _companies: Object;
 
   constructor() {
-    let comp1 = new Company('PVJP Tecnologia', 'Av. Lino de Almeida Pires, 333', 'Desenvolvedora do Conectrade');
-    let comp2 = new Company('RTM', 'R. Libero Badaró, 111', '');
-    let cont1 = new Contact('Paulo Vitor', 'paulo@telep.com.br', '+5511977782110', { 'comp1': true }, 'Desenvolvedor RTM Messenger');
+    let comp1 = new Company('PVJP Tecnologia', 'Av. Lino de Almeida Pires, 333', 'Desenvolvedora do RTM Talk');
+    let comp2 = new Company('RTM', 'R. Libero Badaró, 370', '');
+    let cont1 = new Contact('Paulo Vitor', 'paulo@telep.com.br', '+5511977782110', { 'comp1': true }, 'Desenvolvedor RTM Talk');
     let cont2 = new Contact('André Mello', 'andre.mello@rtm.net.br', '+5511988887777', { 'comp2': true }, 'Diretor Geral');
-    let acti1 = new Activity('Enviar Proposta', 'Enviar proposta de redefinição de senha de usuário final.', { 'cont1': true }, 1489604400000);
+    let acti1 = new Activity('Enviar Proposta', 'Enviar proposta de redefinição de senha de usuário final.', { 'cont1': true },
+      1489604400000, {'meet1': true});
     let meet1 = new Meeting(
       'Definição Recuperação Senha',
-      'Reunião para definição do método de recuperação de senha a ser usado pelo RTM Messenger.',
+      'Reunião para definição do método de recuperação de senha a ser usado pelo RTM Talk.',
       1487008800000, { 'cont1': true, 'cont2': true }, { 'acti1': true }, 'Negócio');
     this._activities = { 'acti1': acti1 };
     this._meetings = { 'meet1': meet1 };
@@ -44,6 +44,14 @@ export class MeetingService {
     this._meetings = value;
   }
 
+  public addMeeting(value: Meeting) {
+    //TODO
+  }
+
+  public deleteMeeting(key: string) {
+    //TODO
+  }
+
   get activities(): Object {
     return this._activities;
   }
@@ -52,12 +60,44 @@ export class MeetingService {
     this._activities = value;
   }
 
+  public addActivity(value: Activity) {
+    //TODO
+  }
+
+  public deleteActivity(key: string) {
+    //TODO
+  }
+
   get contacts(): Object {
     return this._contacts;
   }
 
   set contacts(value: Object) {
     this._contacts = value;
+  }
+
+  public addContact(value: Contact) {
+    //TODO
+  }
+
+  public deleteContact(key: string) {
+    //TODO
+  }
+
+  get companies(): Object {
+    return this._companies;
+  }
+
+  set companies(value: Object) {
+    this._companies = value;
+  }
+
+  public addCompany(value: Company) {
+    //TODO
+  }
+
+  public deleteCompany(key: string) {
+    //TODO
   }
 
 }
@@ -136,12 +176,13 @@ export class Contact {
 
   public static class: string = "contact";
 
-  constructor(name: string, email: string, phone: string, companies: Object, notes: string) {
+  constructor(name: string, email: string = '', phone: string = '', companies: Object = {}, notes: string = '', role: string = '') {
     this._name = name;
     this._email = email;
     this._phone = phone;
     this._companies = companies;
     this._notes = notes;
+    this._role = role;
   }
 
   get name(): string {
@@ -205,7 +246,7 @@ export class Company {
 
   public static class: string = "company";
 
-  constructor(name: string, address: string, notes: string) {
+  constructor(name: string, address: string = '', notes: string = '') {
     this._name = name;
     this._address = address;
     this._notes = notes;
@@ -245,12 +286,13 @@ export class Activity {
 
   public static class: string = "activity";
 
-  constructor(title: string, description: string, owners: Object, dateTime: number) {
+  constructor(title: string, description: string = '', owners: Object = {}, dateTime: number = Date.now(), meeting: Object = {}) {
     this._title = title;
     this._description = description;
     this._owners = owners;
     this._dateTime = dateTime;
     this._status = 'incomplete';
+    this._meeting = meeting;
   }
 
   get title(): string {
@@ -293,10 +335,19 @@ export class Activity {
     this._status = value;
   }
 
+  get meeting(): Object {
+    return this._meeting;
+  }
+
+  set meeting(value: Object) {
+    this._meeting = value;
+  }
+
   private _title: string;
   private _description: string;
   private _owners: Object;
   private _dateTime: number;
   private _status: string;
+  private _meeting: Object;
 
 }

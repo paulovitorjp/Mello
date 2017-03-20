@@ -8,6 +8,10 @@ page-home {
         color: #333;
     }
 
+    .void {
+        border-left: 4px solid lightgray;
+    }
+
     button[ion-fab] {
         overflow: visible;
         position: relative;

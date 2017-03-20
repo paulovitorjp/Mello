@@ -8,4 +8,7 @@ meeting-card {
     .meeting button {
         color: map-get($colors, primary);
     }
+    .meeting .activity button {
+        color: map-get($colors, secondary);
+    }
 }

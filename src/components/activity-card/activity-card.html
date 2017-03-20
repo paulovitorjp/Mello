@@ -6,14 +6,22 @@
   <ion-card-content>
     {{activity.description}}
   </ion-card-content>
+  <ion-row no-padding class="meeting">
+    <ion-col no-padding>
+      <button ion-button clear small icon-left>
+            <ion-icon name='bookmarks'></ion-icon>
+            {{belongsToMeeting}}
+          </button>
+    </ion-col>
+  </ion-row>
   <ion-row no-padding>
-    <ion-col>
+    <ion-col no-padding>
       <button ion-button clear small icon-left>
             <ion-icon name='calendar'></ion-icon>
             {{humanDate}}
           </button>
     </ion-col>
-    <ion-col text-right>
+    <ion-col text-right no-padding>
       <button ion-button clear small icon-left>
             <ion-icon name='person'></ion-icon>
             {{owners}}

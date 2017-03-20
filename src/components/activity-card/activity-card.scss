@@ -9,5 +9,8 @@ activity-card {
     .activity button {
         color: map-get($colors, secondary);
     }
+    .activity .meeting button {
+        color: map-get($colors, primary);
+    }
     
 }

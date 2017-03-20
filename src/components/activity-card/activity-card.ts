@@ -18,6 +18,7 @@ export class ActivityCardComponent {
   _activity: Activity;
   humanDate: string;
   owners: string;
+  belongsToMeeting: string;
 
   constructor(public meetSrvc:MeetingService) {
   }
@@ -38,6 +39,7 @@ export class ActivityCardComponent {
     for (let key of keys) {
       this.owners += this.meetSrvc.contacts[key].name + ' ';
     }
+    this.belongsToMeeting = this.meetSrvc.meetings[Object.getOwnPropertyNames(this.activity.meeting)[0]].title;
   }
 
 
