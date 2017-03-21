@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { MeetingService } from '../../providers/meeting-service';
+import {ContatosModalPage} from "../contatos-modal/contatos-modal";
 
 /*
   Generated class for the Reuniao page.
@@ -16,10 +17,15 @@ export class MeetingPage {
 
   private mode:string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public meetSrvc: MeetingService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public meetSrvc: MeetingService,
+              public modalCtrl:ModalController) {
     this.mode = navParams.get('mode');
   }
 
+  addParticipant() {
+    let participantModal = this.modalCtrl.create(ContatosModalPage);
+    participantModal.present();
+  }
 
 
 }
