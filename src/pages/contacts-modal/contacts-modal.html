@@ -1,0 +1,72 @@
+<ion-header>
+
+  <ion-navbar color="tertiary">
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        Cancelar
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button (click)="dismiss()">
+        Criar
+      </button>
+    </ion-buttons>
+    <ion-title>Contatos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item-divider>
+      Novo
+    </ion-item-divider>
+    <ion-row>
+    <ion-col>
+    <ion-item class="double-col">
+      <ion-label stacked color="tertiary">
+        Nome
+      </ion-label>
+      <ion-input type="text" placeholder="Nome do contato"></ion-input>
+    </ion-item>
+    </ion-col>
+    <ion-col>
+    <ion-item class="double-col">
+      <ion-label stacked color="tertiary">
+        Telefone
+      </ion-label>
+      <ion-input type="phone" placeholder="Telefone do contato"></ion-input>
+    </ion-item>
+    </ion-col>
+    </ion-row>
+    <ion-item>
+      <ion-label stacked color="tertiary">
+        E-mail
+      </ion-label>
+      <ion-input type="email" placeholder="E-mail do contato"></ion-input>
+    </ion-item>
+    <!--<ion-item>-->
+      <ion-label stacked color="tertiary" class="emulate-item">
+        Empresa
+      </ion-label>
+      <div style="padding:8px">
+      <ion-chip>
+        <button ion-button color="quaternary" (click)="addCompany()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+        <ion-label>Adicionar</ion-label>
+      </ion-chip>
+      </div>
+    <!--</ion-item>-->
+  </ion-list>
+  <ion-list>
+    <ion-item-divider>
+      Existentes
+    </ion-item-divider>
+    <ion-item>
+      Não existem contatos existentes.
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -36,6 +36,10 @@
   <ion-fab bottom right>
     <button ion-fab><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top">
+      <button ion-fab (click)="stackPage('contact')">
+        <ion-label class="contato-label-fab">Contato</ion-label>
+        <ion-icon name="person" color="tertiary"></ion-icon>
+      </button>
       <button ion-fab (click)="stackPage('activity')">
         <ion-label class="atividade-label-fab">Atividade</ion-label>
         <ion-icon name="bookmark" color="secondary"></ion-icon>

@@ -26,16 +26,20 @@ $font-path: "../assets/fonts";
 //secondary = verde = atividade
 
 $colors: (
-  primary:     #0085c5,
-  primary-bg:  #65d5FF,
-  secondary:   #00c585,
-  secondary-bg:#65FFD5,
-  warn:        #c5c500,
-  warn-bg:     #FFFF85,
-  danger:      #f53d3d,
-  danger-bg:   #fF8585,
-  light:       #f4f4f4,
-  dark:        #222
+  primary:       #0085c5,
+  primary-bg:    #65d5FF,
+  secondary:     #00c585,
+  secondary-bg:  #65FFD5,
+  tertiary:      #8555c5,
+  tertiary-bg:   #D5b0FF,
+  quaternary:    #c58500,
+  quaternary-bg: #FFD565,
+  warn:          #c5c500,
+  warn-bg:       #FFFF85,
+  danger:        #f53d3d,
+  danger-bg:     #fF8585,
+  light:         #f4f4f4,
+  dark:          #222
 );
 
 

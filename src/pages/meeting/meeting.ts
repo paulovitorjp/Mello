@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { MeetingService } from '../../providers/meeting-service';
-import {ContatosModalPage} from "../contatos-modal/contatos-modal";
+import { ContactsModalPage } from "../contacts-modal/contacts-modal";
 
 /*
   Generated class for the Reuniao page.
@@ -23,7 +23,7 @@ export class MeetingPage {
   }
 
   addParticipant() {
-    let participantModal = this.modalCtrl.create(ContatosModalPage);
+    let participantModal = this.modalCtrl.create(ContactsModalPage);
     participantModal.present();
   }
 

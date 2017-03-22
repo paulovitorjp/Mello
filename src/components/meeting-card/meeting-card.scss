@@ -11,4 +11,7 @@ meeting-card {
     .meeting button.activity {
         color: map-get($colors, secondary);
     }
+    .meeting button.contact {
+        color: map-get($colors, tertiary);
+    }
 }

@@ -9,7 +9,7 @@ import { MeetingService } from '../providers/meeting-service';
 import { AngularFireModule } from 'angularfire2';
 import { ActivityCardComponent } from '../components/activity-card/activity-card';
 import { MeetingCardComponent } from '../components/meeting-card/meeting-card';
-import { ContatosModalPage } from '../pages/contatos-modal/contatos-modal';
+import { ContactsModalPage } from '../pages/contacts-modal/contacts-modal';
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -27,7 +27,7 @@ const firebaseConfig = {
     SearchPage,
     ActivityPage,
     MeetingPage,
-    ContatosModalPage,
+    ContactsModalPage,
     ActivityCardComponent,
     MeetingCardComponent
   ],
@@ -42,7 +42,7 @@ const firebaseConfig = {
     SearchPage,
     ActivityPage,
     MeetingPage,
-    ContatosModalPage,
+    ContactsModalPage,
     ActivityCardComponent,
     MeetingCardComponent
   ],

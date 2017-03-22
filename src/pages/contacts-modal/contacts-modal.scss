@@ -1,0 +1,32 @@
+page-contacts-modal {
+    .item-divider-md {
+        border-top: 1px solid #dedede;
+        background-color: #efefef;
+    }
+
+    .input-has-focus .label-md[stacked], .input-has-focus .label-md[floating]{
+        color: color($colors, tertiary);
+    }
+
+    .item-md.item-input.input-has-focus .item-inner {
+        border-bottom-color: color($colors, tertiary);
+        box-shadow: inset 0 -1px 0 0 color($colors, tertiary);
+    }
+
+    .list-md .item-md.input-has-focus:last-child {
+        border-bottom-color: color($colors, tertiary);
+        box-shadow: inset 0 -1px 0 0 color($colors, tertiary);
+    }
+
+    .list-md .item-input.double-col:last-child {
+        border-bottom: 0;
+    }
+
+    .col {
+        padding: 0;
+    }
+
+    .emulate-item {
+        padding-left: 16px;
+    }
+}
