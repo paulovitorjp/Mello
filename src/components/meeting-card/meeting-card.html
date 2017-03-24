@@ -1,9 +1,9 @@
 <ion-card class="meeting">
-  <ion-card-header>
+  <ion-card-header (click)="openMeeting()">
     {{meeting.title}}
     <ion-icon name="bookmarks" style="float:right"></ion-icon>
   </ion-card-header>
-  <ion-card-content>
+  <ion-card-content (click)="openMeeting()">
     {{meeting.description}}
   </ion-card-content>
   <ion-row no-padding>

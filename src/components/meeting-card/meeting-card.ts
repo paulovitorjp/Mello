@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Meeting } from '../../providers/meeting-service';
+import { MeetingPage } from '../../pages/meeting/meeting';
+import { NavController } from 'ionic-angular';
 
 /*
   Generated class for the MeetingCard component.
@@ -14,20 +16,21 @@ import { Meeting } from '../../providers/meeting-service';
 })
 export class MeetingCardComponent {
 
-  _meeting: Meeting;
+  _meeting: any;
   humanDate: string;
   participants: number;
   activities: number;
 
-  constructor() {
+
+  constructor(public navCtrl:NavController) {
   
   }
 
-  get meeting(): Meeting {
+  get meeting(): any {
     return this._meeting;
   }
 
-  set meeting(value: Meeting) {
+  set meeting(value: any) {
     this._meeting = value;
         //converts miliseconds to date string
     let tempDate = new Date(this.meeting.dateTime)
@@ -38,6 +41,11 @@ export class MeetingCardComponent {
     this.participants = keysP.length;
     let keysA = Object.getOwnPropertyNames(this.meeting.activities);
     this.activities = keysA.length;
+  }
+
+  openMeeting() {
+    console.log(this.meeting.id);
+    this.navCtrl.push(MeetingPage, { mode: 'view', id: this.meeting.id });
   }
 
 }

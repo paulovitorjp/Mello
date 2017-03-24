@@ -44,6 +44,8 @@ export class HomePage {
     values.reduce((prev, cur) => {
       let keys = Object.getOwnPropertyNames(cur);
       for (let key of keys) {
+        cur[key]['id'] = key;
+        console.log(cur[key]);
         temp.push(cur[key]);
       }
       return temp;
